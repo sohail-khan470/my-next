@@ -2,6 +2,9 @@
 import { Router } from "next/router";
 import { useNotes } from "../hooks/useNotes";
 import { useRouter } from "next/navigation";
+import Modal from "./Modal";
+import NoteForm from "./NoteForm";
+import { useState } from "react";
 
 interface NoteProps {
   note: {
@@ -13,6 +16,8 @@ interface NoteProps {
 }
 
 const Note = ({ note }: NoteProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const router = useRouter();
 
   const handleClick = () => {
@@ -53,6 +58,9 @@ const Note = ({ note }: NoteProps) => {
         </svg>
         {formattedDate}
       </div>
+      <Modal isOpen onClose={(prev: boolean) => setIsOpen(!prev)}>
+        <NoteForm></NoteForm>{" "}
+      </Modal>
     </div>
   );
 };
