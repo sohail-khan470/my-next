@@ -1,7 +1,22 @@
 // features/notes/services/notes.service.ts
 export async function fetchNotes() {
+  console.log("*************");
   const res = await fetch("/api/notes");
+  console.log(res, "RRRRR");
   if (!res.ok) throw new Error("Failed to fetch notes");
+  return res.json();
+}
+
+export async function fetchSingleNote(id: string) {
+  const numericId = Number(id); // convert string to number
+  if (isNaN(numericId)) throw new Error("Invalid note id");
+
+  const res = await fetch(`http://localhost:3000/api/notes/${id}`, {
+    method: "GET",
+  });
+
+  if (!res.ok) throw new Error("Failed to get single note");
+
   return res.json();
 }
 
