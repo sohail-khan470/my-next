@@ -28,7 +28,7 @@ const Note = ({ note }: NoteProps) => {
 
   return (
     <div
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-700"
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-700 cursor-pointer"
       onClick={handleClick}
     >
       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-1">
